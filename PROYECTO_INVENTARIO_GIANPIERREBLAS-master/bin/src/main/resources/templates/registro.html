@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<title>Registro de usuarios - Sistema de Inventario</title>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<style>
+    body {
+        background-image: url('https://th.bing.com/th/id/R.c73508de790c098386796ce34e82bcd3?rik=J7Gyf4vKRDPptQ&pid=ImgRaw&r=0');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        opacity: 0.8; /* Opacidad ajustable */
+        font-family: Arial, sans-serif;
+    }
+    .container {
+        margin-top: 50px;
+    }
+    .card {
+        border: none;
+        border-radius: 10px;
+        box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+    }
+    .card-header {
+        background-color: #343a40;
+        color: #fff;
+        border-bottom: none;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+    }
+    .card-body {
+        background-color: #f8f9fa;
+    }
+    .form-group label {
+        font-weight: bold;
+    }
+    .btn-success {
+        border-radius: 25px;
+        padding: 15px 30px;
+        font-size: 16px;
+        font-weight: bold;
+        background-color: #28a745;
+        border: none;
+        transition: background-color 0.3s ease;
+    }
+    .btn-success:hover {
+        background-color: #218838;
+    }
+    .btn-back {
+        background-color: transparent;
+        color: #343a40;
+        border: none;
+        font-size: 16px;
+        transition: color 0.3s ease;
+    }
+    .btn-back:hover {
+        color: #000;
+    }
+</style>
+</head>
+<body>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header text-center">
+                    <h3>Registro de Usuario</h3>
+                </div>
+                <div class="card-body">
+                    <form th:action="@{/registro}" method="post" th:object="${usuario}">
+                        <div class="form-group">
+                            <label for="nombre">Nombre</label>
+                            <input id="nombre" type="text" class="form-control" th:field="*{nombre}" required autofocus>
+                        </div>
+                        <div class="form-group">
+                            <label for="apellido">Apellido</label>
+                            <input id="apellido" type="text" class="form-control" th:field="*{apellido}" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input id="email" type="email" class="form-control" th:field="*{email}" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Contraseña</label>
+                            <input id="password" type="password" class="form-control" th:field="*{password}" required>
+                        </div>
+                        <div class="form-group text-center">
+                            <button type="submit" class="btn btn-success btn-block">Registrar</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="card-footer text-center">
+                    <span>¿Ya tienes una cuenta? <a class="btn-back" th:href="@{/login}">Inicia sesión aquí</a></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

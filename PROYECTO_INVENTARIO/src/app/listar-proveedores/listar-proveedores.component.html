@@ -1,0 +1,34 @@
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Código</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- Utilizando la sintaxis *ngFor para iterar sobre proveedores -->
+        <tr *ngFor="let proveedor of proveedores; let i = index">
+            <td>{{ proveedor.id }}</td>
+            <td>{{ proveedor.nombre }}</td>
+            <td>{{ proveedor.apellido }}</td>
+        </tr>
+    </tbody>
+</table>
+
+<button class="download-button" (click)="downloadPdf()">Descargar Datos</button>
+
+<style>
+    .download-button {
+        background-color: #4CAF50; /* Color verde */
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        cursor: pointer;
+        border-radius: 4px;
+    }
+
+    .download-button:hover {
+        background-color: #45a049; /* Cambio de color al pasar el mouse */
+    }
+</style>

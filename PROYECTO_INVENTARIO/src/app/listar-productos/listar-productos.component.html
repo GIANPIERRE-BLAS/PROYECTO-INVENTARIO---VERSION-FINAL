@@ -1,0 +1,35 @@
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Código</th>
+      <th>Descripción</th>
+      <th>Categoría</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for(producto of productos; track producto.codProducto) {
+        <tr>
+      <td>{{ producto.codProducto }}</td>
+      <td>{{ producto.desProducto }}</td>
+      <td>{{ producto.desCategoria }}</td>
+    </tr>
+}
+  </tbody>
+</table>
+<button class="download-button" (click)="descargarProductospdf()">Descargar Datos</button>
+
+<style>
+    .download-button {
+        background-color: #4CAF50; /* Color verde */
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        cursor: pointer;
+        border-radius: 4px;
+    }
+
+    .download-button:hover {
+        background-color: #45a049; /* Cambio de color al pasar el mouse */
+    }
+</style>
+

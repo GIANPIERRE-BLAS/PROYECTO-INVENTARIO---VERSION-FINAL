@@ -1,0 +1,137 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Gestión de Proveedores</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa; /* Color de fondo claro */
+        }
+        .table-wrapper {
+            margin: 20px 0;
+            background: rgba(255, 255, 255, 1); /* Fondo blanco */
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+            position: relative;
+            z-index: 1;
+        }
+        .table-title {
+            padding-bottom: 15px;
+            background: #343a40;
+            color: #fff;
+            padding: 16px 30px;
+            margin: -20px -20px 10px;
+            border-radius: 8px 8px 0 0;
+            text-align: center;
+        }
+        .search-box {
+            position: relative;
+            margin-bottom: 10px;
+            height: 23px;
+        }
+        .search-box input {
+            padding-right: 35px;
+            border-radius: 20px;
+            height: 100%;
+            border: 1px solid #ddd;
+            box-shadow: none;
+        }
+        .search-box .input-group-text {
+            border: none;
+            background: transparent;
+            position: absolute;
+            right: 0;
+            top: 0;
+            height: 34px;
+            width: 34px;
+            border-radius: 20px;
+            line-height: 34px;
+            text-align: center;
+            color: #a0a5b1;
+        }
+        .btn-group-menu {
+            margin-bottom: 10px;
+            width: 100%;
+            text-align: right;
+        }
+        .btn-group-menu .btn {
+            display: inline-block;
+            margin-left: 5px;
+        }
+        th {
+            text-align: center;
+        }
+        .btn {
+            min-width: 120px;
+        }
+        .background-image {
+            display: block;
+            margin: 20px auto;
+            max-width: 68%;
+            max-height: 100%;
+            opacity: 1; /* Ajusta la opacidad según sea necesario */
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="table-wrapper">
+        <div class="table-title d-flex justify-content-between align-items-center">
+            <h2>Gestión de <b>Proveedores</b></h2>
+            <div class="d-flex align-items-center">
+                <div class="search-box">
+                    <form action="/proveedores/lista" method="get" class="d-flex">
+                        <input type="text" name="keyword" class="form-control me-2" placeholder="Buscar..." th:value="${keyword}">
+                    </form>
+                </div>
+                <a href="/proveedores/lista" class="btn btn-secondary btn-sm me-2">Limpiar</a>
+                <a href="/proveedores/nuevo" class="btn btn-primary btn-sm me-2">Nuevo Proveedor</a>
+                <a href="/graficos" class="btn btn-info btn-sm me-2">Gráficos</a>
+                <a href="/reportes" class="btn btn-warning btn-sm me-2">Reportes</a>
+            </div>
+        </div>
+        <table class="table table-striped table-hover">
+            <thead>
+                <tr>
+                    <th>Código</th>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr align="center" th:each="proveedor: ${proveedores}">
+                    <td th:text="${proveedor.id}"></td>
+                    <td th:text="${proveedor.nombre}"></td>
+                    <td th:text="${proveedor.apellido}"></td>
+                    <td>
+                        <a th:href="@{/proveedores/editar?id={id}(id=${proveedor.id})}" class="btn btn-warning btn-sm">Editar</a>
+                        <a th:href="@{/proveedores/eliminar?id={id}(id=${proveedor.id})}" class="btn btn-danger btn-sm">Eliminar</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="btn-group-menu">
+		<a href="/categorias" class="btn btn-success btn-sm">Ir a Gestionar Categorias</a>
+		<a href="/productos" class="btn btn-info btn-sm me-2">Ir a Gestionar Productos</a>
+		<a href="/" class="btn btn-primary btn-sm">Ir al Inicio</a>
+		<a href="/login" class="btn btn-danger btn-sm">Cerrar Sesión</a>
+    </div>
+    <img class="background-image" src="https://static.vecteezy.com/system/resources/previews/012/494/550/non_2x/inventory-control-system-concept-professional-manager-and-worker-are-checking-goods-and-stock-supply-inventory-management-with-goods-demand-vector.jpg" alt="Background Image">
+</div>
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-MTOxRx4WEM8b7XZdxQVXTa/l8z+EzLOa2LTny03GRgk9rZ5lE2cfvRJNxwYU/T9g" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-MTOxRx4WEM8b7XZdxQVXTa/l8z+EzLOa2LTny03GRgk9rZ5lE2cfvRJNxwYU/T9g" crossorigin="anonymous"></script>
+</body>
+</html>
+
+
+
+
+
+

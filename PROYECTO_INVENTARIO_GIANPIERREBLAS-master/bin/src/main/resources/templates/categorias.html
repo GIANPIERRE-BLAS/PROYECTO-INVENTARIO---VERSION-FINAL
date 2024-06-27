@@ -1,0 +1,93 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Gestión de Categorías</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+        }
+        .table-wrapper {
+            margin: 20px 0;
+            background: rgba(255, 255, 255, 1);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+            position: relative;
+            z-index: 1;
+        }
+        .table-title {
+            padding-bottom: 15px;
+            background: #343a40;
+            color: #fff;
+            padding: 16px 30px;
+            margin: -20px -20px 10px;
+            border-radius: 8px 8px 0 0;
+            text-align: center;
+        }
+        .btn-group-menu {
+            margin-bottom: 10px;
+            width: 100%;
+            text-align: right;
+        }
+        .btn-group-menu .btn {
+            display: inline-block;
+            margin-left: 5px;
+        }
+        th, td {
+            text-align: center;
+        }
+        .btn {
+            min-width: 120px;
+        }
+        .background-image {
+            display: block;
+            margin: 20px auto;
+            max-width: 68%;
+            max-height: 100%;
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="table-wrapper">
+            <div class="table-title d-flex justify-content-between align-items-center">
+                <h2>Gestión de <b>Categorías</b></h2>
+                <div class="d-flex align-items-center">
+                    <a href="/nuevaCategoria" class="btn btn-primary btn-sm me-2">Nueva Categoría</a>
+                </div>
+            </div>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Código</th>
+                        <th>Descripción</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="categoria : ${categorias}">
+                        <td th:text="${categoria.codCategoria}"></td>
+                        <td th:text="${categoria.desCategoria}"></td>
+                        <td>
+                            <a th:href="@{/editarCategoria/{id}(id=${categoria.codCategoria})}" class="btn btn-warning">Editar</a>
+                            <a th:href="@{/eliminarCategoria/{id}(id=${categoria.codCategoria})}" class="btn btn-danger">Eliminar</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="btn-group-menu">
+            <a href="/proveedores" class="btn btn-primary btn-sm">Regresar</a>
+        </div>
+        <img class="background-image" src="https://static.vecteezy.com/system/resources/previews/012/494/550/non_2x/inventory-control-system-concept-professional-manager-and-worker-are-checking-goods-and-stock-supply-inventory-management-with-goods-demand-vector.jpg" alt="Background Image">
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-Lz5sce/XyovV5QocWnO6nzMyYg8ZZqRv80E0jHb51yJHJ/hkWrPEJn5Jf+Nquw6x" crossorigin="anonymous"></script>
+</body>
+</html>
+
+

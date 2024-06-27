@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bienvenida Administrador</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: url('https://www.claseejecutiva.com.ec/wp-content/uploads/2021/05/Inventarios-gestion-de-inventarios-min.jpg') no-repeat center center fixed;
+            background-size: cover;
+            margin: 0;
+        }
+        .container {
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 2em;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 50%;
+            width: 100%;
+        }
+        .button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+        .button:hover {
+            background-color: #0056b3;
+        }
+        #progress {
+            width: 100%;
+            background-color: #e0e0e0;
+            border-radius: 5px;
+            overflow: hidden;
+            display: none;
+            margin-top: 20px;
+        }
+        #progress-bar {
+            height: 20px;
+            background-color: #007bff;
+            width: 0;
+        }
+        .typing-animation {
+            display: inline-block;
+            overflow: hidden;
+            border-right: .15em solid orange;
+            white-space: nowrap;
+            margin: 0 auto;
+            letter-spacing: .15em;
+            animation: typing 3.5s steps(30, end), blink-caret .5s step-end infinite;
+        }
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: orange }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1><span class="typing-animation">Bienvenido Administrador</span></h1>
+        <p>Bienvenido a este sistema de inventario. Haga clic en el botón de abajo para comenzar a gestionar.</p>
+        <button class="button" onclick="startGestion()">Iniciar a gestionar</button>
+        <div id="progress">
+            <div id="progress-bar"></div>
+        </div>
+    </div>
+    <script>
+        function startGestion() {
+            const progress = document.getElementById('progress');
+            const progressBar = document.getElementById('progress-bar');
+            progress.style.display = 'block';
+
+            let width = 0;
+            const interval = setInterval(() => {
+                if (width >= 100) {
+                    clearInterval(interval);
+                    window.location.href = 'proveedores';
+                } else {
+                    width++;
+                    progressBar.style.width = width + '%';
+                }
+            }, 50);
+        }
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+

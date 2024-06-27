@@ -1,0 +1,34 @@
+<!-- listar-categorias.component.html -->
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Código</th>
+            <th>Descripción</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for(categoria of categorias; track categoria.codCategoria) {
+            <tr>
+                <td>{{ categoria.codCategoria }}</td>
+                <td>{{ categoria.desCategoria }}</td>
+            </tr>
+        }
+    </tbody>
+</table>
+<button class="download-button" (click)="descargarCategoriasPdf()">Descargar Datos</button>
+
+<style>
+    .download-button {
+        background-color: #4CAF50; /* Color verde */
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        cursor: pointer;
+        border-radius: 4px;
+    }
+
+    .download-button:hover {
+        background-color: #45a049; /* Cambio de color al pasar el mouse */
+    }
+</style>
+
